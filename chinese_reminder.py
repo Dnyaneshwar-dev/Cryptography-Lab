@@ -63,8 +63,6 @@ for i in range(n):
 # geeting M1,M2,..., Mn values
 M = list(map(findValues,m))
 
-for i in M:
-    print(i)
 
 # getting inverse of each others
 M_ = list(map(getInverse,M,m))

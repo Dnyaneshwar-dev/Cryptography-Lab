@@ -2,22 +2,28 @@ p = 94330614439790080372283084894409247771060628112247
 q = 60264862959201431356289639716633433305531911461177
 
 
-def power(x, y, p):         
+# power calculation using binary exponentiation with modulo arithmetic
+def power(x, y, p) :
+    res = 1     # Initialize result
  
-    # Initialize result
-    res = 1
+    x = x % p
+     
+    if (x == 0) :
+        return 0
  
-    while (y > 0):
- 
-        # If y is odd, multiply x with result
-        if ((y & 1) != 0):
-            res = res * x
+    while (y > 0) :
+         
+        # If y is odd, multiply
+        # x with result
+        if ((y & 1) == 1) :
+            res = (res * x) % p
  
         # y must be even now
-        y = y >> 1  # y = y/2
-        x = x * x  # Change x to x^2
- 
-    return res % p
+        y = y >> 1      # y = y/2
+        x = (x * x) % p
+         
+    return res
+
  
 
 def getGcd(a,b):
